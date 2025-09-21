@@ -50,6 +50,16 @@ export const useFundInvoice = () => {
   return { fundInvoice: write, isLoading, error };
 };
 
+export const useCreateInvoice = () => {
+  const { write, isLoading, error } = useContractWrite({
+    address: CONTRACT_ADDRESS as `0x${string}`,
+    abi: CONTRACT_ABI,
+    functionName: 'createInvoice',
+  });
+
+  return { createInvoice: write, isLoading, error };
+};
+
 export const useReleaseEscrow = () => {
   const { write, isLoading, error } = useContractWrite({
     address: CONTRACT_ADDRESS as `0x${string}`,

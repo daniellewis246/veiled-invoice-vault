@@ -1,114 +1,116 @@
-# Veiled Invoice Vault
+# 🔐 Veiled Invoice Vault
 
-A revolutionary FHE-powered confidential invoice trading platform built on blockchain technology.
+> **Next-Generation Confidential Invoice Trading Platform**
 
-## Overview
+Transform your invoice financing with cutting-edge privacy technology. Trade invoices securely while keeping sensitive data completely encrypted using Fully Homomorphic Encryption (FHE).
 
-Veiled Invoice Vault is a cutting-edge decentralized application that enables confidential trading of invoices using Fully Homomorphic Encryption (FHE). The platform ensures complete privacy while maintaining transparency and security through blockchain technology.
+## ✨ What Makes Us Different
 
-## Features
+- 🛡️ **Zero-Knowledge Privacy**: Your invoice details remain encrypted even during processing
+- ⚡ **Instant Settlement**: Smart contracts automate the entire trading process
+- 🔒 **Bank-Grade Security**: FHE encryption ensures data never leaves your control
+- 🌐 **Decentralized**: No single point of failure or data breach
 
-- **FHE-Powered Privacy**: All sensitive invoice data is encrypted using Fully Homomorphic Encryption
-- **Wallet Integration**: Seamless connection with popular Web3 wallets via RainbowKit
-- **Confidential Trading**: Trade invoices without revealing sensitive financial information
-- **Smart Contract Integration**: Secure and transparent transactions on the blockchain
-- **Modern UI**: Built with React, TypeScript, and Tailwind CSS
+## 🚀 Quick Start
 
-## Technologies
-
-This project is built with:
-
-- **Frontend**: React 18, TypeScript, Vite
-- **UI Framework**: shadcn/ui, Tailwind CSS
-- **Web3**: RainbowKit, Wagmi, Viem
-- **Blockchain**: Ethereum Sepolia Testnet
-- **Encryption**: FHE (Fully Homomorphic Encryption)
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+ 
-- npm or yarn
-- Git
-
-### Installation
-
-1. Clone the repository:
 ```bash
+# Clone and setup
 git clone https://github.com/daniellewis246/veiled-invoice-vault.git
 cd veiled-invoice-vault
-```
-
-2. Install dependencies:
-```bash
 npm install
-```
 
-3. Create environment file:
-```bash
+# Configure environment
 cp .env.example .env
-```
+# Edit .env with your configuration
 
-4. Start the development server:
-```bash
+# Start development
 npm run dev
 ```
 
-## Environment Configuration
+## 🏗️ Architecture
 
-Create a `.env` file with the following variables:
-
-```env
-# Chain Configuration
-NEXT_PUBLIC_CHAIN_ID=11155111
-NEXT_PUBLIC_RPC_URL=https://sepolia.infura.io/v3/b18fb7e6ca7045ac83c41157ab93f990
-
-# Wallet Connect Configuration
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=2ec9743d0d0cd7fb94dee1a7e6d33475
-
-# Infura Configuration
-NEXT_PUBLIC_INFURA_API_KEY=b18fb7e6ca7045ac83c41157ab93f990
-NEXT_PUBLIC_RPC_URL=https://1rpc.io/sepolia
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Frontend      │    │   Smart         │    │   FHE           │
+│   (React/Vite)  │◄──►│   Contracts     │◄──►│   Encryption    │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-## Deployment
+## 🔧 Tech Stack
 
-### Vercel Deployment
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| Frontend | React 18 + TypeScript | Modern UI/UX |
+| Styling | Tailwind CSS + shadcn/ui | Beautiful components |
+| Web3 | RainbowKit + Wagmi | Wallet integration |
+| Blockchain | Ethereum Sepolia | Testnet deployment |
+| Encryption | FHE (Fully Homomorphic) | Privacy preservation |
 
-1. Connect your GitHub repository to Vercel
-2. Set the environment variables in Vercel dashboard
-3. Deploy automatically on push to main branch
+## 📋 Features
 
-### Manual Deployment
+### For Invoice Sellers
+- 📄 Create encrypted invoices
+- 🔍 Set custom terms and conditions
+- 💰 Receive instant payment upon verification
+- 📊 Track transaction history
 
+### For Investors
+- 🔍 Browse available invoices (encrypted)
+- 💡 Place competitive bids
+- ⚡ Instant funding capabilities
+- 📈 Portfolio management
+
+### For Platform
+- 🛡️ FHE-powered data protection
+- ⚖️ Automated escrow management
+- 📊 Reputation system
+- 💼 Fee management
+
+## 🛠️ Development
+
+### Prerequisites
+- Node.js 18+
+- Git
+- Web3 wallet (MetaMask, etc.)
+
+### Environment Setup
 ```bash
-npm run build
-npm run preview
+# Required environment variables
+NEXT_PUBLIC_CHAIN_ID=11155111
+NEXT_PUBLIC_RPC_URL=your_rpc_url
+NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_project_id
 ```
 
-## Smart Contracts
+### Smart Contract Deployment
+```bash
+# Compile contracts
+npm run compile
 
-The platform includes FHE-enabled smart contracts for:
-- Invoice creation and management
-- Confidential bidding system
-- Secure fund escrow
-- Privacy-preserving transactions
+# Deploy to Sepolia
+npm run deploy
+```
 
-## Security
+## 🔐 Security Features
 
-- All sensitive data is encrypted using FHE
-- Smart contracts are audited and secure
-- Wallet integration follows best practices
-- Privacy-first architecture
+- **FHE Encryption**: All sensitive data encrypted at rest and in transit
+- **Smart Contract Escrow**: Funds held securely until conditions met
+- **Reputation System**: Trust-based user verification
+- **Audit Trail**: Immutable transaction records
 
-## Contributing
+## 📚 Documentation
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+- [Smart Contract API](./docs/contract-api.md)
+- [FHE Implementation](./docs/fhe-guide.md)
+- [Security Audit](./docs/security.md)
 
-## License
+## 🤝 Contributing
 
-MIT License - see LICENSE file for details
+We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+---
+
+**Built with ❤️ for the future of confidential finance**

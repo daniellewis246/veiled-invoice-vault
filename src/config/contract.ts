@@ -66,6 +66,16 @@ export const CONTRACT_ABI = [
   {
     "inputs": [
       {"internalType": "uint256", "name": "invoiceId", "type": "uint256"},
+      {"internalType": "uint32", "name": "encryptedAmount", "type": "uint32"}
+    ],
+    "name": "fundInvoice",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {"internalType": "uint256", "name": "invoiceId", "type": "uint256"},
       {"internalType": "uint32", "name": "amount", "type": "uint32"},
       {"internalType": "uint32", "name": "discountRate", "type": "uint32"}
     ],

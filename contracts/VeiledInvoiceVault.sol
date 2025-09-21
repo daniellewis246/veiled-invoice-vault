@@ -136,10 +136,13 @@ contract VeiledInvoiceVault {
         emit BidAccepted(bidId, invoiceId, bids[bidId].bidder);
     }
     
-    function fundInvoice(uint256 invoiceId) public payable {
+    function fundInvoice(uint256 invoiceId, euint32 encryptedAmount) public payable {
         require(invoices[invoiceId].buyer == msg.sender, "Only buyer can fund invoice");
         require(Fhe.decrypt(invoices[invoiceId].isVerified), "Invoice must be verified");
         require(!Fhe.decrypt(invoices[invoiceId].isFunded), "Invoice already funded");
+        
+        // Verify encrypted amount matches invoice amount using FHE comparison
+        require(Fhe.decrypt(encryptedAmount == invoices[invoiceId].amount), "Encrypted amount mismatch");
         
         uint256 amount = Fhe.decrypt(invoices[invoiceId].amount);
         require(msg.value >= amount, "Insufficient payment");
@@ -147,11 +150,11 @@ contract VeiledInvoiceVault {
         invoices[invoiceId].isFunded = Fhe.asEbool(true);
         invoices[invoiceId].fundedAt = block.timestamp;
         
-        // Create escrow
+        // Create escrow with encrypted amount
         uint256 escrowId = escrowCounter++;
         escrows[escrowId] = Escrow({
-            escrowId: invoices[invoiceId].amount,
-            amount: invoices[invoiceId].amount,
+            escrowId: encryptedAmount,
+            amount: encryptedAmount,
             isReleased: Fhe.asEbool(false),
             seller: invoices[invoiceId].seller,
             buyer: msg.sender,
